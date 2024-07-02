@@ -24,8 +24,8 @@ import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
-import { Outlet } from "react-router-dom";
-import logo from '../../assets/logo.png';
+import { Outlet, useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.png";
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
@@ -40,17 +40,13 @@ const navigation = [
   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
 ];
 
-const userNavigation = [
-  { name: "Your profile", href: "#" },
-  { name: "Sign out", href: "#" },
-];
-
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -88,11 +84,7 @@ export default function AdminLayout() {
               {/* Sidebar component, swap this element with another sidebar if you like */}
               <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4 ring-1 ring-white/10">
                 <div className="flex h-16 shrink-0 items-center">
-                  <img
-                    className="h-8 w-auto"
-                    src={logo}
-                    alt="UG Hospital"
-                  />
+                  <img className="h-8 w-auto" src={logo} alt="UG Hospital" />
                   <h1>UGMC</h1>
                 </div>
                 <nav className="flex flex-1 flex-col">
@@ -145,11 +137,7 @@ export default function AdminLayout() {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4">
             <div className="flex h-16 shrink-0 items-center">
-              <img
-                className="h-8 w-auto"
-                src={logo}
-                alt="UG Hospital"
-              />
+              <img className="h-8 w-auto" src={logo} alt="UG Hospital" />
               <h1 className="text-white ml-10 font-semibold text-4xl">UGMC</h1>
             </div>
             <nav className="flex flex-1 flex-col">
@@ -268,9 +256,17 @@ export default function AdminLayout() {
                   </MenuButton>
                   <MenuItems
                     transition
-                    className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
+                    className="absolute p-3 right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                   >
-                    {userNavigation.map((item) => (
+                    <MenuItem>
+                      <button
+                        onClick={() => navigate("/")}
+                        className="mr-3 p-3 bg-red-400 w-full rounded-lg text-white font-bold"
+                      >
+                        Logout
+                      </button>
+                    </MenuItem>
+                    {/* {userNavigation.map((item) => (
                       <MenuItem key={item.name}>
                         {({ focus }) => (
                           <a
@@ -284,7 +280,7 @@ export default function AdminLayout() {
                           </a>
                         )}
                       </MenuItem>
-                    ))}
+                    ))} */}
                   </MenuItems>
                 </Menu>
               </div>

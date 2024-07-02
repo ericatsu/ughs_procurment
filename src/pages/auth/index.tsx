@@ -1,11 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { loginApi } from "../../constants";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import logo from '../../assets/logo.png';
-import doctors from '../../assets/doctors.png';
+import logo from "../../assets/logo.png";
+import doctors from "../../assets/doctors.png";
 
 type formInput = {
   email: string;
@@ -31,7 +32,7 @@ export default function SignIn({ setShowModal }: any) {
 
   return (
     <div className="bg-white flex h-screen">
-      <div >
+      <div>
         <div>
           <div className=" flex-1 absolute w-[700px] h-screen top-0 left-0 bg-[#869ca3] overflow-hidden">
             <div className="inline-flex items-center absolute top-[50px] left-32">
@@ -53,14 +54,15 @@ export default function SignIn({ setShowModal }: any) {
           </div>
           <div className="inline-flex flex-col items-center w-1/2 justify-end gap-10 absolute top-[150px] left-1/2">
             <div className="flex flex-col items-center gap-2">
-              <div className="text-5xl font-bold text-black">
-                Welcome back
-              </div>
+              <div className="text-5xl font-bold text-black">Welcome back</div>
               <p className="text-xl text-[#878787]">
                 UG Hospital - Department of Procurement Portal
               </p>
             </div>
-            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start gap-4">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col items-start gap-4"
+            >
               <div className="flex flex-col items-start gap-1">
                 <label htmlFor="email" className="text-lg text-black">
                   Email Address
@@ -89,7 +91,10 @@ export default function SignIn({ setShowModal }: any) {
                   placeholder="Password"
                 />
               </div>
-              <button type="submit" className="w-[491px] py-3.5 bg-[#0f4770] rounded-[10px] text-white font-bold">
+              <button
+                type="submit"
+                className="w-[491px] py-3.5 bg-[#0f4770] rounded-[10px] text-white font-bold"
+              >
                 {loading ? "Loading....." : "Sign In"}
               </button>
               <div className="flex w-[490px] items-center justify-between">

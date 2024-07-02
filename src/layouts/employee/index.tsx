@@ -22,7 +22,7 @@ import {
   ChevronDownIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 
 const navigation = [
@@ -40,16 +40,12 @@ const navigation = [
   },
 ];
 
-const userNavigation = [
-  { name: "Your profile", href: "#" },
-  { name: "Sign out", href: "#" },
-];
-
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function EmployeeLayout() {
+  const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -262,21 +258,14 @@ export default function EmployeeLayout() {
                     transition
                     className="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
                   >
-                    {userNavigation.map((item) => (
-                      <MenuItem key={item.name}>
-                        {({ focus }) => (
-                          <a
-                            href={item.href}
-                            className={classNames(
-                              focus ? "bg-gray-50" : "",
-                              "block px-3 py-1 text-sm leading-6 text-gray-900"
-                            )}
-                          >
-                            {item.name}
-                          </a>
-                        )}
-                      </MenuItem>
-                    ))}
+                    <MenuItem>
+                      <button
+                        onClick={() => navigate("/")}
+                        className="mr-3 p-3 bg-red-400 w-full rounded-lg text-white font-bold"
+                      >
+                        Logout
+                      </button>
+                    </MenuItem>
                   </MenuItems>
                 </Menu>
               </div>
