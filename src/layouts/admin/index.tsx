@@ -25,6 +25,7 @@ import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/20/solid";
 import { Outlet } from "react-router-dom";
+import logo from '../../assets/logo.png';
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
@@ -89,9 +90,10 @@ export default function AdminLayout() {
                 <div className="flex h-16 shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
+                    src={logo}
+                    alt="UG Hospital"
                   />
+                  <h1>UGMC</h1>
                 </div>
                 <nav className="flex flex-1 flex-col">
                   <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -145,9 +147,10 @@ export default function AdminLayout() {
             <div className="flex h-16 shrink-0 items-center">
               <img
                 className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                alt="Your Company"
+                src={logo}
+                alt="UG Hospital"
               />
+              <h1 className="text-white ml-10 font-semibold text-4xl">UGMC</h1>
             </div>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
