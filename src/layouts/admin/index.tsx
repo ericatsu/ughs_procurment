@@ -30,6 +30,12 @@ const navigation = [
   { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
   { name: "Users", href: "/admin/users", icon: UsersIcon, current: false },
   { name: "Assets", href: "/admin/assets", icon: FolderIcon, current: false },
+  {
+    name: "Audit Trail",
+    href: "/admin/audit-trail",
+    icon: FolderIcon,
+    current: false,
+  },
   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
 ];
 
