@@ -7,6 +7,9 @@ import Users from "./pages/admin/users";
 import Assets from "./pages/admin/assets";
 import { ToastContainer } from "react-toastify";
 import AuditTrail from "./pages/admin/auditTrail";
+import EmployeeLayout from "./layouts/employee";
+import EmployeeAssets from "./pages/employee/Assets";
+import MyRequests from "./pages/employee/myRequests";
 
 function App() {
   return (
@@ -20,7 +23,10 @@ function App() {
             <Route path="users" element={<Users />} />
             <Route path="assets" element={<Assets />} />
             <Route path="audit-trail" element={<AuditTrail />} />
-            {/* <Route path="/auth/reset-password" element={<ResetPassword />} /> */}
+          </Route>
+          <Route path="/employee" element={<EmployeeLayout />}>
+            <Route index element={<EmployeeAssets />} />
+            <Route path="my-requests" element={<MyRequests />} />
           </Route>
         </Routes>
       </Router>
