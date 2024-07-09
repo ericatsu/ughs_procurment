@@ -3,8 +3,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { getAssetsApi } from "../../../constants";
-import { Modal } from "antd";
-import MakeRequestForm from "./components/makeRequestForm";
+import MakeReqBtn from "./components/makeRequestBtn";
 
 const EmployeeAssets = () => {
   const [showModal, setShowModal] = useState(false);
@@ -141,12 +140,11 @@ const EmployeeAssets = () => {
                               {asset.expiryDate}
                             </td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                              <button
-                                onClick={() => setShowModal(true)}
-                                className="bg-blue-500 text-white p-3 rounded-lg"
-                              >
-                                make request
-                              </button>
+                              <MakeReqBtn
+                                setShowModal={setShowModal}
+                                showModal={showModal}
+                                asset={asset}
+                              />
                             </td>
                           </tr>
                         ))}
@@ -159,16 +157,6 @@ const EmployeeAssets = () => {
           </div>
         </div>
       </div>
-
-      <Modal
-        onCancel={() => setShowModal(false)}
-        title="Add New Employee"
-        centered
-        open={showModal}
-        footer={false}
-      >
-        <MakeRequestForm setShowModal={setShowModal} />
-      </Modal>
     </>
   );
 };

@@ -19,15 +19,30 @@ export default function SignIn({ setShowModal }: any) {
   const { register, handleSubmit } = useForm<formInput>();
 
   const onSubmit: SubmitHandler<formInput> = async (data) => {
-    console.log(data);
     setLoading(true);
-    await axios.post(loginApi, {
+    const response = await axios.post(loginApi, {
       data,
     });
-    setLoading(false);
-    toast.success("Login success");
-    navigate("/admin");
-    setShowModal(false);
+
+    if (response.data.data.userExists.role === "Employee") {
+      setLoading(false);
+      toast.success("Login success");
+      localStorage.setItem(
+        "user",
+        JSON.stringify(response.data.data.userExists)
+      );
+      navigate("/employee");
+      setShowModal(false);
+    } else {
+      setLoading(false);
+      toast.success("Login success");
+      localStorage.setItem(
+        "user",
+        JSON.stringify(response.data.data.userExists)
+      );
+      navigate("/admin");
+      setShowModal(false);
+    }
   };
 
   return (
