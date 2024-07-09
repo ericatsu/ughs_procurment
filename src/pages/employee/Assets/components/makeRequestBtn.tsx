@@ -14,6 +14,7 @@ const MakeReqBtn = ({ setShowModal, showModal, asset }: any) => {
       asset: asset._id,
       employee: user._id,
     });
+    setShowModal(false);
     toast.success("Request was successful");
   };
 
@@ -27,7 +28,7 @@ const MakeReqBtn = ({ setShowModal, showModal, asset }: any) => {
       </button>
       <Modal
         onCancel={() => setShowModal(false)}
-        title="Add New Employee"
+        title="Make Request"
         centered
         open={showModal}
         footer={false}
