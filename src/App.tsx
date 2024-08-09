@@ -10,6 +10,7 @@ import AuditTrail from "./pages/admin/auditTrail";
 import EmployeeLayout from "./layouts/employee";
 import EmployeeAssets from "./pages/employee/Assets";
 import MyRequests from "./pages/employee/myRequests";
+import Orders from "./pages/admin/orders";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="users" element={<Users />} />
             <Route path="assets" element={<Assets />} />
             <Route path="audit-trail" element={<AuditTrail />} />
+            <Route path="orders" element={<Orders />} />
           </Route>
           <Route path="/employee" element={<EmployeeLayout />}>
             <Route index element={<EmployeeAssets />} />

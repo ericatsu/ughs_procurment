@@ -9,3 +9,5 @@ export const getLogs = `${server}/api/log/get-logs`;
 export const getAssetsApi = `${server}/api/asset/get-assets`;
 export const deleteUserApi = `${server}/api/user/delete`;
 export const loginApi = `${server}/api/user/auth/signin`;
+
+export const getAllOrdersApi = `${server}/api/asset/all-orders`;

@@ -45,7 +45,7 @@ const NewAssetForm = ({ setShowModal }: any) => {
         </div>
       </div>
 
-      <div className="relative -space-y-px rounded-md shadow-sm">
+      <div className="relative -space-y-px rounded-md shadow-sm mt-6">
         <div className="pointer-events-none absolute inset-0 z-10 rounded-md ring-1 ring-inset ring-gray-300" />
         <div>
           <label className="sr-only">Name</label>
@@ -59,7 +59,7 @@ const NewAssetForm = ({ setShowModal }: any) => {
         </div>
       </div>
 
-      <div className="relative -space-y-px rounded-md shadow-sm">
+      <div className="relative -space-y-px rounded-md shadow-sm mt-6">
         <div className="pointer-events-none absolute inset-0 z-10 rounded-md ring-1 ring-inset ring-gray-300" />
         <div>
           <label className="sr-only">Staff Id</label>
@@ -73,7 +73,7 @@ const NewAssetForm = ({ setShowModal }: any) => {
         </div>
       </div>
 
-      <div className="my-3">
+      <div className="mt-6">
         <h3>Purchase Date</h3>
         <div className="relative -space-y-px rounded-md shadow-sm">
           <div className="pointer-events-none absolute inset-0 z-10 rounded-md ring-1 ring-inset ring-gray-300" />
@@ -89,7 +89,7 @@ const NewAssetForm = ({ setShowModal }: any) => {
         </div>
       </div>
 
-      <div className="my-3">
+      <div className="mt-6">
         <h3>Expiry Date</h3>
         <div className="relative -space-y-px rounded-md shadow-sm">
           <div className="pointer-events-none absolute inset-0 z-10 rounded-md ring-1 ring-inset ring-gray-300" />
@@ -108,7 +108,7 @@ const NewAssetForm = ({ setShowModal }: any) => {
       <div>
         <button
           type="submit"
-          className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="flex mt-6 w-full justify-center rounded-md bg-[#153D6F]  p-3 text-sm font-semibold leading-6 text-white  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           {loading ? <h1>Loading....</h1> : <h1>Continue</h1>}
         </button>

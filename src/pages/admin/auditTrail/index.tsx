@@ -1,8 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowDownTrayIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+} from "@heroicons/react/24/outline";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { getLogs } from "../../../constants";
+import { CSVLink } from "react-csv";
 
 const AuditTrail = () => {
   const [data, setData] = useState([]);
@@ -67,12 +72,21 @@ const AuditTrail = () => {
               Logs
             </h2>
           </div>
+          <CSVLink data={data}>
+            <button
+              type="button"
+              className="ml-3 inline-flex space-x-2 items-center rounded-md border border-[#153D6F] text-[#153D6F] px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              <p> Download Data</p>
+              <ArrowDownTrayIcon className="w-6 h-6" />
+            </button>
+          </CSVLink>
         </div>
       </div>
 
       {/* table section */}
       <div>
-        <div className="px-4 sm:px-6 lg:px-8">
+        <div className="">
           <div className="mt-8 flow-root">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -102,12 +116,6 @@ const AuditTrail = () => {
                           scope="col"
                           className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                         >
-                          Staff ID
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                        >
                           IP Adddress
                         </th>
                       </tr>
@@ -123,9 +131,6 @@ const AuditTrail = () => {
                           </td>
                           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                             {log?.createdAt}
-                          </td>
-                          <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                            {log.role}
                           </td>
                           <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                             {log?.ipAddress}

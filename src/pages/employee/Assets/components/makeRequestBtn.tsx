@@ -22,7 +22,7 @@ const MakeReqBtn = ({ setShowModal, showModal, asset }: any) => {
     <>
       <button
         onClick={() => setShowModal(true)}
-        className="bg-blue-500 text-white p-3 rounded-lg"
+        className="bg-[#153D6F] text-white p-3 rounded-lg"
       >
         make request
       </button>
@@ -40,7 +40,7 @@ const MakeReqBtn = ({ setShowModal, showModal, asset }: any) => {
               onClick={() => {
                 return handleMakeRequest();
               }}
-              className="bg-blue-600 text-white p-3 rounded-lg mt-4 px-6"
+              className="bg-[#153D6F] text-white p-3 rounded-lg mt-4 px-6"
             >
               Yes
             </button>

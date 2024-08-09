@@ -28,9 +28,10 @@ import { Outlet, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: HomeIcon, current: true },
+  { name: "Dashboard", href: "/admin", icon: HomeIcon, current: true },
   { name: "Users", href: "/admin/users", icon: UsersIcon, current: false },
   { name: "Assets", href: "/admin/assets", icon: FolderIcon, current: false },
+  { name: "Orders", href: "/admin/orders", icon: FolderIcon, current: false },
   {
     name: "Audit Trail",
     href: "/admin/audit-trail",
@@ -58,7 +59,7 @@ export default function AdminLayout() {
         >
           <DialogBackdrop
             transition
-            className="fixed inset-0 bg-gray-900/80 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
+            className="fixed inset-0 bg-[#153D6F] transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
           />
 
           <div className="fixed inset-0 flex">
@@ -82,7 +83,7 @@ export default function AdminLayout() {
                 </div>
               </TransitionChild>
               {/* Sidebar component, swap this element with another sidebar if you like */}
-              <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4 ring-1 ring-white/10">
+              <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-[#153D6F] px-6 pb-4 ring-1 ring-white/10">
                 <div className="flex h-16 shrink-0 items-center">
                   <img className="h-8 w-auto" src={logo} alt="UG Hospital" />
                   <h1>UGMC</h1>
@@ -135,7 +136,7 @@ export default function AdminLayout() {
         {/* Static sidebar for desktop */}
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4">
+          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-[#153D6F] px-6 pb-4">
             <div className="flex h-16 shrink-0 items-center">
               <img className="h-8 w-auto" src={logo} alt="UG Hospital" />
               <h1 className="text-white ml-10 font-semibold text-4xl">UGMC</h1>

@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { deleteUserApi, getUsersApi } from "../../../constants";
 import { toast } from "react-toastify";
+import { ArrowDownTrayIcon } from "@heroicons/react/24/outline";
+import { CSVLink } from "react-csv";
 
 const Users = () => {
   const [showModal, setShowModal] = useState(false);
@@ -84,10 +86,19 @@ const Users = () => {
               </h2>
             </div>
             <div className="mt-4 flex flex-shrink-0 md:ml-4 md:mt-0">
+              <CSVLink data={data}>
+                <button
+                  type="button"
+                  className="ml-3 inline-flex space-x-2 items-center rounded-md border border-[#153D6F] text-[#153D6F] px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  <p> Download Data</p>
+                  <ArrowDownTrayIcon className="w-6 h-6" />
+                </button>
+              </CSVLink>
               <button
                 onClick={() => setShowModal(true)}
                 type="button"
-                className="ml-3 inline-flex items-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="ml-3 inline-flex items-center rounded-md bg-[#153D6F] px-3 py-2 text-sm font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 New User
               </button>
@@ -97,7 +108,7 @@ const Users = () => {
 
         {/* table section */}
         <div>
-          <div className="px-4 sm:px-6 lg:px-8">
+          <div className="">
             <div className="mt-8 flow-root">
               <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
